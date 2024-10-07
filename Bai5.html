@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+<body>
+    <h1>Đồng Bộ Chuỗi</h1>
+    <p id="originalText"></p>
+    <p id="syncedText"></p>
+    <script>
+        let text = "gasdZX";
+        document.getElementById("originalText").textContent = "Chuỗi ban đầu là: " + text;
+
+        let lowerCaseCount = (text.match(/[a-z]/g) || []).length;
+        let upperCaseCount = (text.match(/[A-Z]/g) || []).length;
+
+        text = lowerCaseCount > upperCaseCount ? text.toLowerCase() : upperCaseCount > lowerCaseCount ? text.toUpperCase() : Math.random() < 0.5 ? text.toLowerCase() : text.toUpperCase();
+
+        document.getElementById("syncedText").textContent = "Chuỗi sau khi đồng bộ là: " + text;
+    </script>
+</body>
+</html>

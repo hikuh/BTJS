@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 15</title>
+</head>
+<body>
+    <h1>Tìm Số Lớn Nhất Trong Mảng</h1>
+    <p id ="array"></p>
+    <p id ="max"></p>
+    <script>
+        const randomArray = Array.from({ length: Math.floor(Math.random() * 10) + 1 }, () => Math.floor(Math.random() * 46) + 5);
+
+        const maxValue = Math.max(...randomArray);
+
+        document.getElementById("array").textContent = "Mảng ban đầu là: " + JSON.stringify(randomArray);
+        document.getElementById("max").textContent = "Số lớn nhất trong mảng là: " + maxValue;
+
+    </script>
+</body>
+</html>

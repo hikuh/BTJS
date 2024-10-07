@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+<body>
+    <h1>Số ngày còn lại trong tháng</h1>
+    <p id="daysLeft"></p>
+
+    <script>
+        let nowTime = new Date();
+        let daysLeft = new Date(nowTime.getFullYear(), nowTime.getMonth() + 1, 0).getDate() - nowTime.getDate();
+        document.getElementById("daysLeft").textContent = "Số ngày còn lại: " + daysLeft;
+    </script>
+</body>
+</html>

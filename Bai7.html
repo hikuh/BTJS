@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+</head>
+<body>
+    <h1>So Sánh 2 Object</h1>
+    <p id="object1Display"></p>
+    <p id="object2Display"></p>
+    <p id="result"></p>
+
+    <script>
+        function deepEqual(obj1, obj2) {
+            if (typeof obj1 !== 'object' || typeof obj2 !== 'object' || obj1 === null || obj2 === null) {
+                return obj1 === obj2;
+            }
+
+            let keys1 = Object.keys(obj1);
+            let keys2 = Object.keys(obj2);
+
+            if (keys1.length !== keys2.length) {
+                return false;
+            }
+
+            for (let key of keys1) {
+                if (!keys2.includes(key)) {
+                    return false;
+                }
+
+                if (!deepEqual(obj1[key], obj2[key])) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        const object1 = {
+            a: 1,
+            b: { x: 6, y: 3 },
+            c: 4
+        };
+
+        const object2 = {
+            a: 1,
+            b: { x: 2, y: 3 },
+            c: 4
+        };
+        document.getElementById("object1Display").textContent = "Object 1: " + JSON.stringify(object1, null, 2);
+        document.getElementById("object2Display").textContent = "Object 2: " + JSON.stringify(object2, null, 2);
+        const result = deepEqual(object1, object2) ? "Hai object bằng nhau" : "Hai object không bằng nhau";
+        document.getElementById("result").textContent = result;
+    </script>
+</body>
+</html>

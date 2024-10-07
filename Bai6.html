@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 6</title>
+</head>
+<body>
+    <h1>Kiểm Tra Mật Khẩu Mạnh</h1>
+    <label for="password">Nhập mật khẩu:</label>
+    <input type="text" id="password" />
+    <button onclick="checkPassword()">Kiểm tra</button>
+    <p id="result"></p>
+
+    <script>
+        function checkPassword() {
+            let password = document.getElementById("password").value;
+            let result = document.getElementById("result");
+
+            let strongPasswordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{}]).{8,}$/;
+
+            if (strongPasswordRegex.test(password)) {
+                result.textContent = "Mật khẩu mạnh.";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Mật khẩu chưa đủ mạnh. Yêu cầu: Tối thiểu 8 ký tự, ít nhất 1 ký tự viết hoa, 1 số và 1 ký tự đặc biệt (!@#$%^&*()_+-=[]{}).";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

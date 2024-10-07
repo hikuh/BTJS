@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 10</title>
+</head>
+<body>
+    <h1>Xoá Phần Tử Trùng Lặp Trong Mảng</h1>
+    <p id="originalArray"></p>
+    <p id="uniqueArray"></p>
+
+    <script>
+        // Ví dụ mảng chứa các phần tử trùng lặp
+        const array = [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 9];
+
+        document.getElementById("originalArray").textContent = "Mảng ban đầu: " + JSON.stringify(array);
+        const uniqueArray = [...new Set(array)];
+        document.getElementById("uniqueArray").textContent = "Mảng sau khi xoá trùng lặp: " + JSON.stringify(uniqueArray);
+    </script>
+</body>
+</html>

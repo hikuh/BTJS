@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 13</title>
+</head>
+<body>
+    <h1>Tính Tổng Các Phần Tử Số</h1>
+    <p id="arrayDisplay"></p>
+    <p id="result"></p>
+
+    <script>
+        const array = [1, 2, 3, 4, 5, "a", "b", 6, 7, 8];
+        document.getElementById("arrayDisplay").textContent = "Mảng: " + JSON.stringify(array);
+        const totalSum = array.reduce((sum, value) => typeof value === 'number' ? sum + value : sum, 0);
+        document.getElementById("result").textContent = "Tổng các số trong mảng: " + totalSum;
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 14</title>
+</head>
+<body>
+    <h1>Tạo và Sắp Xếp Mảng Object (Consolelog)</h1>
+    <script>
+        const arrayLength = Math.floor(Math.random() * 10) + 1;
+        const arrayOfObjects = Array.from({ length: arrayLength }, () => {
+            return { stt: Math.floor(Math.random() * 51) }; 
+        });
+
+        console.log("Mảng ban đầu:", arrayOfObjects);
+        arrayOfObjects.sort((a, b) => b.stt - a.stt);
+        console.log("Mảng sau khi sắp xếp giảm dần:", arrayOfObjects);
+    </script>
+</body>
+</html>
