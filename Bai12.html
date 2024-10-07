@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 12</title>
+</head>
+<body>
+    <h1>Mảng Giao Nhau</h1>
+    <p id="array1Display"></p>
+    <p id="array2Display"></p>
+    <p id="result"></p>
+
+    <script>
+        const array1 = [1, 2, 3, 4, 5];
+        const array2 = [4, 5, 6, 7, 8];
+
+        document.getElementById("array1Display").textContent = "Mảng 1: " + JSON.stringify(array1);
+        document.getElementById("array2Display").textContent = "Mảng 2: " + JSON.stringify(array2);
+
+        const intersectionArray = array1.filter(value => array2.includes(value));
+        document.getElementById("result").textContent = "Mảng giao nhau: " + JSON.stringify(intersectionArray);
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bài 11</title>
+    </head>
+    <body>
+        <h1>Danh Sách Key Với Giá Trị Bằng Nhau</h1>
+        <p id="objectDisplay"></p>
+        <p id="valueDisplay"></p>
+        <p id="result"></p>
+        <script>
+            const object = {
+                a: 1,
+                b: 2,
+                c: 1,
+                d: 3,
+                e: 2
+            };
+    
+            const valueToFind = 2;
+    
+            document.getElementById("objectDisplay").textContent = "Object: " + JSON.stringify(object);
+            document.getElementById("valueDisplay").textContent = "Value ngẫu nhiên: " + valueToFind;
+    
+            const matchingKeys = Object.keys(object).filter(key => object[key] === valueToFind);
+
+            document.getElementById("result").textContent = "Các key có giá trị bằng " + valueToFind + ": " + JSON.stringify(matchingKeys);
+        </script>
+    </body>
+</html>

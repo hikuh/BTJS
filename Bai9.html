@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 9</title>
+</head>
+<body>
+    <h1>Kiểm Tra Object</h1>
+    <p id="objectDisplay"></p>
+    <p id="result"></p>
+
+    <script>
+        const object = {
+            a: 1,
+            b: 3,
+            c: 'hello',
+            d: 'Nguyen Cuong',
+            e: 5
+        };
+
+        document.getElementById("objectDisplay").textContent = "Object: " + JSON.stringify(object);
+        const hasInvalidValue = Object.values(object).some(value => value === null || value === undefined || Number.isNaN(value));
+        document.getElementById("result").textContent = hasInvalidValue ? "Object có giá trị vô nghĩa" : "Object không có giá trị vô nghĩa";
+    </script>
+</body>
+</html>
