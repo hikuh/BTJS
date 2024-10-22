@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đổi màu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Chọn một màu</h2>
+    <select id="colorSelector">
+        <option value="white">Chọn màu</option>
+        <option value="red">Đỏ</option>
+        <option value="blue">Xanh dương</option>
+        <option value="green">Xanh lá</option>
+    </select>
+</div>
+
+<script>
+    const colorSelector = document.getElementById('colorSelector');
+
+    colorSelector.addEventListener('change', function() {
+        // Lấy giá trị màu được chọn
+        const selectedColor = this.value;
+
+        // Thay đổi màu nền của trang
+        document.body.style.backgroundColor = selectedColor;
+    });
+</script>
+
+</body>
+</html>

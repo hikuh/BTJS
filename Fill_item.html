@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển thị phần tử trong mảng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            width: 60%;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .item {
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Hiển thị phần tử</h2>
+    <p id="result"></p>
+    <button id="generateBtn">Tạo và hiển thị mảng</button>
+    <div id="gridContainer" class="grid"></div>
+</div>
+
+<script>
+    function getRandomArray(minLength) {
+        const length = Math.floor(Math.random() * 10) + minLength; 
+        return Array.from({ length }, (_, index) => index + 1); 
+    }
+
+    function displayArray(arr) {
+        const gridContainer = document.getElementById('gridContainer');
+        gridContainer.innerHTML = ''; 
+
+        const displayLength = Math.floor(arr.length / 4) * 4;
+
+        for (let i = 0; i < displayLength; i++) {
+            const item = document.createElement('div');
+            item.classList.add('item');
+            item.textContent = arr[i]; 
+            gridContainer.appendChild(item);
+        }
+    }
+
+    document.getElementById('generateBtn').addEventListener('click', function() {
+        const randomArray = getRandomArray(4); 
+        document.getElementById("result").textContent=randomArray; 
+        displayArray(randomArray); 
+    });
+</script>
+
+</body>
+</html>

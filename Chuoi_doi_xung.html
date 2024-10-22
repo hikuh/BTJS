@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuỗi đối xứng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .checker {
+            text-align: center;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="checker">
+    <h2>Kiểm tra chuỗi</h2>
+    <input type="text" id="inputString" placeholder="Nhập một chuỗi">
+    <br>
+    <button id="checkBtn">Check</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function isPalindrome(str) {
+        // Loại bỏ khoảng trắng và chuyển chuỗi thành chữ thường
+        const cleanedStr = str.replace(/\s+/g, '').toLowerCase();
+
+        // Đảo ngược chuỗi
+        const reversedStr = cleanedStr.split('').reverse().join('');
+
+        // So sánh chuỗi gốc và chuỗi đảo ngược
+        return cleanedStr === reversedStr;
+    }
+
+    document.getElementById('checkBtn').addEventListener('click', function() {
+        const inputStr = document.getElementById('inputString').value;
+        const resultDiv = document.getElementById('result');
+        
+        if (isPalindrome(inputStr)) {
+            resultDiv.textContent = `"${inputStr}" là chuỗi đối xứng!`;
+            resultDiv.style.color = 'green';
+        } else {
+            resultDiv.textContent = `"${inputStr}" không là chuỗi đối xứng.`;
+            resultDiv.style.color = 'red';
+        }
+    });
+</script>
+
+</body>
+</html>

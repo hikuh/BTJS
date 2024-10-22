@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng hồ bấm giờ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .stopwatch {
+            text-align: center;
+        }
+        .time {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="stopwatch">
+    <div class="time" id="display">00:00:00</div>
+    <div class="buttons">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn" disabled>Stop</button>
+        <button id="resetBtn" disabled>Reset</button>
+    </div>
+</div>
+
+<script>
+    let hours = 0, minutes = 0, seconds = 0;
+    let timer;
+    const display = document.getElementById('display');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function updateDisplay() {
+        const formattedTime = 
+            (hours < 10 ? "0" + hours : hours) + ":" + 
+            (minutes < 10 ? "0" + minutes : minutes) + ":" + 
+            (seconds < 10 ? "0" + seconds : seconds);
+        display.textContent = formattedTime;
+    }
+
+    function startTimer() {
+        timer = setInterval(() => {
+            seconds++;
+            if (seconds === 60) {
+                seconds = 0;
+                minutes++;
+            }
+            if (minutes === 60) {
+                minutes = 0;
+                hours++;
+            }
+            updateDisplay();
+        }, 1000);
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        resetBtn.disabled = false;
+    }
+
+    function stopTimer() {
+        clearInterval(timer);
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+        updateDisplay();
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+        resetBtn.disabled = true;
+    }
+
+    startBtn.addEventListener('click', startTimer);
+    stopBtn.addEventListener('click', stopTimer);
+    resetBtn.addEventListener('click', resetTimer);
+
+    updateDisplay();
+</script>
+
+</body>
+</html>

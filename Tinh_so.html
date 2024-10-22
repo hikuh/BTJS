@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính số</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            text-align: center;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <button id="generateBtn">Generate and Calculate</button>
+    <div class="result" id="result">Result: A / B = C</div>
+</div>
+
+<script>
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function generateNumbers() {
+        // Tạo số A ngẫu nhiên có 6 chữ số
+        const A = getRandomNumber(100000, 999999);
+        
+        // Tạo số B ngẫu nhiên có 2 hoặc 3 chữ số
+        const B = getRandomNumber(10, 999);
+
+        // Tính C = A / B và làm tròn đến 2 số thập phân
+        const C = (A / B).toFixed(2);
+
+        // Hiển thị kết quả
+        document.getElementById('result').textContent = `A = ${A}, B = ${B}, C = ${C}`;
+    }
+
+    document.getElementById('generateBtn').addEventListener('click', generateNumbers);
+</script>
+
+</body>
+</html>
